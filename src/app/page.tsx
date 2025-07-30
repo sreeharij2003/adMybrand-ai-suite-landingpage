@@ -11,9 +11,9 @@ import Testimonials from '@/components/sections/testimonials'
 import FloatingActionButton from '@/components/ui/floating-action-button'
 
 // Import new sections
-const PricingCalculator = require('@/components/sections/pricing-calculator').default
-const DemoVideo = require('@/components/sections/demo-video').default
-const BlogResources = require('@/components/sections/blog-resources').default
+import BlogResources from '@/components/sections/blog-resources'
+import DemoVideo from '@/components/sections/demo-video'
+import PricingCalculator from '@/components/sections/pricing-calculator'
 
 export default function Home() {
   return (

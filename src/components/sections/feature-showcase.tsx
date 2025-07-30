@@ -52,7 +52,7 @@ const FeatureShowcase = () => {
     }
   ]
 
-  const renderMockup = (feature) => {
+  const renderMockup = (feature: typeof features[0]) => {
     switch (feature.mockupType) {
       case 'ads':
         return (

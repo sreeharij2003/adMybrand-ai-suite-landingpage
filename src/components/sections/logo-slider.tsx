@@ -99,10 +99,10 @@ const LogoSlider = () => {
                       transition: 'all 0.5s ease',
                     }}
                     onMouseEnter={(e) => {
-                      e.target.style.filter = 'drop-shadow(0 0 12px rgba(59, 130, 246, 0.8)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))';
+                      (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 12px rgba(59, 130, 246, 0.8)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))';
                     }}
                     onMouseLeave={(e) => {
-                      e.target.style.filter = 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))';
+                      (e.target as HTMLElement).style.filter = 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))';
                     }}
                   >
                     {logo.name}
