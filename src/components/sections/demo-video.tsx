@@ -3,11 +3,12 @@
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
-import { Clock, Maximize, Play, TrendingUp, Users, Volume2 } from 'lucide-react'
-import { useState } from 'react'
+import { Clock, Play, TrendingUp, Users } from 'lucide-react'
+import { useRef, useState } from 'react'
 
 const DemoVideo = () => {
   const [isPlaying, setIsPlaying] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   const stats = [
     { icon: Clock, value: '2 min', label: 'Quick Setup' },
@@ -57,19 +58,32 @@ const DemoVideo = () => {
               </div>
 
               {/* Video Content */}
-              <div className="absolute inset-0 mt-14 bg-gradient-to-br from-blue-500 to-cyan-400">
-                {/* Duration Badge */}
-                <div className="absolute top-4 right-4 bg-black/70 text-white px-2 py-1 rounded text-sm font-medium">
-                  0:30
-                </div>
+              <div className="absolute inset-0 mt-14">
+                {/* Actual Video Element */}
+                <video
+                  ref={videoRef}
+                  className="w-full h-full object-cover"
+                  controls={isPlaying}
+                  poster="/ai-marketing-background-clean.jpg"
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                  onEnded={() => setIsPlaying(false)}
+                  preload="metadata"
+                >
+                  <source src="/demo-video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
 
-                {/* Play Button */}
+                {/* Play Button Overlay */}
                 {!isPlaying && (
                   <motion.button
-                    onClick={() => setIsPlaying(true)}
-                    className="absolute inset-0 flex items-center justify-center group"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                      setIsPlaying(true)
+                      videoRef.current?.play()
+                    }}
+                    className="absolute inset-0 flex items-center justify-center group bg-black/20"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
                     <div className="w-20 h-20 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center group-hover:bg-white transition-all duration-300 shadow-lg">
                       <Play className="w-8 h-8 text-blue-600 ml-1" fill="currentColor" />
@@ -77,62 +91,15 @@ const DemoVideo = () => {
                   </motion.button>
                 )}
 
-
-
-                {/* Video Controls (when playing) */}
-                {isPlaying && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="absolute bottom-4 left-4 right-4 bg-black/50 backdrop-blur-md rounded-lg p-4"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-4">
-                        <button
-                          onClick={() => setIsPlaying(false)}
-                          className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
-                        >
-                          <Play className="w-4 h-4 text-white" fill="currentColor" />
-                        </button>
-                        <span className="text-white text-sm">0:45 / 2:15</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Volume2 className="w-4 h-4 text-white" />
-                        <Maximize className="w-4 h-4 text-white" />
-                      </div>
+                {/* Video Info Overlay */}
+                {!isPlaying && (
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="bg-black/70 backdrop-blur-md rounded-lg p-4">
+                      <h3 className="text-white font-semibold mb-1">ADmyBRAND AI Suite Demo</h3>
+                      <p className="text-gray-300 text-sm">See how our AI transforms your marketing workflow</p>
                     </div>
-                    <div className="mt-2 bg-white/20 rounded-full h-1">
-                      <motion.div
-                        className="bg-blue-400 h-1 rounded-full"
-                        initial={{ width: "0%" }}
-                        animate={{ width: "35%" }}
-                        transition={{ duration: 2 }}
-                      />
-                    </div>
-                  </motion.div>
-                )}
-
-                {/* Video Thumbnail Content */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-white">
-                    <motion.div
-                      animate={{ 
-                        scale: [1, 1.1, 1],
-                        opacity: [0.7, 1, 0.7]
-                      }}
-                      transition={{ 
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                      className="text-6xl mb-4"
-                    >
-                      🎬
-                    </motion.div>
-                    <h3 className="text-2xl font-bold mb-2">ADmyBRAND Demo</h3>
-                    <p className="text-gray-300">See the magic happen</p>
                   </div>
-                </div>
+                )}
               </div>
 
               {/* Floating elements */}
@@ -224,7 +191,10 @@ const DemoVideo = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 cursor-pointer"
-              onClick={() => setIsPlaying(true)}
+              onClick={() => {
+                setIsPlaying(true)
+                videoRef.current?.play()
+              }}
             >
               <div className="flex items-center justify-between mb-3">
                 <h4 className="font-semibold text-white">{feature.title}</h4>
