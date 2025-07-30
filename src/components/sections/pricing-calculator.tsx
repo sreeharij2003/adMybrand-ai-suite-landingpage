@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { motion } from 'framer-motion'
-import { Calculator, Users, FileText, Mail, TrendingUp, Check } from 'lucide-react'
+import { Calculator, Check, FileText, Mail, Users } from 'lucide-react'
 import { useState } from 'react'
 
 const PricingCalculator = () => {
@@ -69,12 +69,12 @@ const PricingCalculator = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Card className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl">
+            <Card className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl h-full flex flex-col">
               <CardHeader>
                 <h3 className="text-2xl font-bold text-white mb-2">Customize Your Plan</h3>
                 <p className="text-gray-300">Adjust the sliders to match your requirements</p>
               </CardHeader>
-              <CardContent className="space-y-8">
+              <CardContent className="space-y-8 flex-1">
                 {/* Team Size */}
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -171,12 +171,12 @@ const PricingCalculator = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Card className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 backdrop-blur-xl border border-white/20 rounded-2xl">
+            <Card className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 backdrop-blur-xl border border-white/20 rounded-2xl h-full flex flex-col">
               <CardHeader>
                 <h3 className="text-2xl font-bold text-white mb-2">Your Custom Plan</h3>
                 <p className="text-gray-300">Perfect for your specific requirements</p>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-1 flex flex-col">
                 <div className="text-center mb-8">
                   <div className="text-6xl font-bold text-white mb-2">
                     ${calculatePrice()}
@@ -189,7 +189,7 @@ const PricingCalculator = () => {
                   )}
                 </div>
 
-                <div className="space-y-3 mb-8">
+                <div className="space-y-3 mb-8 flex-1">
                   {features.map((feature, index) => (
                     <motion.div
                       key={feature}
@@ -205,13 +205,15 @@ const PricingCalculator = () => {
                   ))}
                 </div>
 
-                <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-blue-500/25 transition-all duration-300">
-                  Start Your Custom Plan
-                </Button>
+                <div className="mt-auto">
+                  <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-blue-500/25 transition-all duration-300">
+                    Start Your Custom Plan
+                  </Button>
 
-                <p className="text-center text-gray-400 text-sm mt-4">
-                  14-day free trial • No credit card required
-                </p>
+                  <p className="text-center text-gray-400 text-sm mt-4">
+                    14-day free trial • No credit card required
+                  </p>
+                </div>
               </CardContent>
             </Card>
           </motion.div>

@@ -153,7 +153,7 @@ const Pricing = () => {
           </div>
 
           {/* Pricing Cards */}
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 mt-8">
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={plan.name}
@@ -165,8 +165,8 @@ const Pricing = () => {
               className={`relative ${plan.popular ? 'scale-105' : ''}`}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <Badge className="px-4 py-1 bg-blue-500/20 text-blue-400 border-blue-500/30">
+                <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-10">
+                  <Badge className="px-4 py-1 bg-blue-500/20 text-blue-400 border-blue-500/30 backdrop-blur-sm">
                     Most Popular
                   </Badge>
                 </div>

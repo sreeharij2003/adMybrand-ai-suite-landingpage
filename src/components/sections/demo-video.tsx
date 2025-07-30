@@ -77,25 +77,7 @@ const DemoVideo = () => {
                   </motion.button>
                 )}
 
-                {/* Video Content */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-8">
-                  <motion.div
-                    animate={{
-                      scale: [1, 1.1, 1],
-                      opacity: [0.8, 1, 0.8]
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                    className="text-4xl mb-6"
-                  >
-                    🚀
-                  </motion.div>
-                  <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">Transform Your Business</h2>
-                  <p className="text-lg opacity-90 text-center">AI-powered marketing that delivers results</p>
-                </div>
+
 
                 {/* Video Controls (when playing) */}
                 {isPlaying && (
