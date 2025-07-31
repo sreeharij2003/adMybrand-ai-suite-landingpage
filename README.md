@@ -96,7 +96,7 @@ Built with 8+ reusable components:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/sreeharij2003/omniplex-internship.git
+   git clone https://github.com/sreeharij2003/adMybrand-ai-suite-landingpage.git
    cd "Landing page/admybrand-ai-suite"
    ```
 
@@ -236,9 +236,7 @@ This project is licensed under the MIT License.
 
 For questions or support, please contact:
 - **GitHub**: [@sreeharij2003](https://github.com/sreeharij2003)
-- **Repository**: [Omniplex Internship](https://github.com/sreeharij2003/omniplex-internship)
-- **Email**: hello@admybrand.ai
-- **Website**: https://admybrand.ai
+- **Repository**: [Omniplex Internship](https://github.com/sreeharij2003/adMybrand-ai-suite-landingpage.git)
 
 ## 🌟 Show Your Support
 
