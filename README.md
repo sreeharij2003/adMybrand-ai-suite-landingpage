@@ -236,7 +236,7 @@ This project is licensed under the MIT License.
 
 For questions or support, please contact:
 - **GitHub**: [@sreeharij2003](https://github.com/sreeharij2003)
-- **Repository**: [Omniplex Internship](https://github.com/sreeharij2003/adMybrand-ai-suite-landingpage.git)
+- **Repository**: [adMybrand-ai-suite-landingpage](https://github.com/sreeharij2003/adMybrand-ai-suite-landingpage.git)
 
 ## 🌟 Show Your Support
 
